@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @delayed_job %>
+
+<div>
+  <%= link_to "Edit this delayed job", edit_delayed_job_path(@delayed_job) %> |
+  <%= link_to "Back to delayed jobs", delayed_jobs_path %>
+
+  <%= button_to "Destroy this delayed job", @delayed_job, class: 'btn btn-danger', method: :delete %>
+</div>

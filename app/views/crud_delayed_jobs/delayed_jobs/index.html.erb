@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Delayed jobs</h1>
+
+<div id="delayed_jobs">
+  <% @delayed_jobs.each do |delayed_job| %>
+    <%= render delayed_job %>
+    <p>
+      <%= link_to "Show this delayed job", delayed_job %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New delayed job", new_delayed_job_path %>

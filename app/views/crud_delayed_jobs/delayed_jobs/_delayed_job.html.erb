@@ -1,0 +1,13 @@
+<div id="<%= dom_id delayed_job %>">
+
+  <% CrudDelayedJobs::DelayedJob.new.attributes.keys.excluding(['created_at', 'updated_at']).each do |prop| %>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <p>
+          <strong><%= prop.humanize.capitalize %>:</strong>
+          <%= delayed_job.public_send(prop) %>
+        </p>
+      </li>
+    </ul>
+  <% end %>
+</div>

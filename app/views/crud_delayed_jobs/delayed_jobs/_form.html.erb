@@ -1,0 +1,75 @@
+<%= form_with(model: delayed_job) do |form| %>
+  <% if delayed_job.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(delayed_job.errors.count, "error") %> prohibited this delayed_job from being saved:</h2>
+
+      <ul>
+        <% delayed_job.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h1>Hello</h1>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div>
+        <%= form.label :priority, style: "display: block" %>
+        <%= form.number_field :priority %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <%= form.label :attempts, style: "display: block" %>
+        <%= form.number_field :attempts %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <%= form.label :handler, style: "display: block" %>
+        <%= form.text_area :handler %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <%= form.label :last_error, style: "display: block" %>
+        <%= form.text_area :last_error %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <%= form.label :run_at, style: "display: block" %>
+        <%= form.datetime_field :run_at %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <%= form.label :locked_at, style: "display: block" %>
+        <%= form.datetime_field :locked_at %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <%= form.label :failed_at, style: "display: block" %>
+        <%= form.datetime_field :failed_at %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <%= form.label :locked_by, style: "display: block" %>
+        <%= form.text_field :locked_by %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div>
+        <%= form.label :queue, style: "display: block" %>
+        <%= form.text_field :queue %>
+      </div>
+    </li>
+  </ul>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
